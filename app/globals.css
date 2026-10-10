@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #001a4d;
+  --color-navy-900: #000c26;
+  --color-accent: #2f6bff;
+  --color-sky: #7fb2ff;
+  --color-ink: #0b1220;
+  --color-paper: #f5f7fb;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-up: marquee-up 35s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-up {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+}
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--color-accent); color: white; }
+
+@media (pointer: fine) {
+  body.has-cursor, body.has-cursor * { cursor: none !important; }
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-marquee-up { animation: none; }
+}
